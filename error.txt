@@ -1,0 +1,3 @@
+[C++ Warning] UnitMain.cpp(160): W8004 'val' is assigned a value that is never used
+[C++ Warning] UnitMain.cpp(165): W8012 Comparing signed and unsigned values
+[Linker Error] Error processing module C:\PROGRAM FILES\BORLAND\CBUILDER6\LIB\STLPMTI.LIB|STLPMT45.DLL
