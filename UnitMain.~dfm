@@ -1,6 +1,6 @@
 object PoltnomForm: TPoltnomForm
-  Left = 269
-  Top = 207
+  Left = 247
+  Top = 224
   Width = 870
   Height = 502
   Caption = 'Polynom'
@@ -94,6 +94,14 @@ object PoltnomForm: TPoltnomForm
     Width = 65
     Height = 24
     Caption = 'Value ='
+    Visible = False
+  end
+  object lbIndex: TLabel
+    Left = 592
+    Top = 64
+    Width = 68
+    Height = 24
+    Caption = 'Index = '
     Visible = False
   end
   object EditA: TEdit
@@ -244,5 +252,30 @@ object PoltnomForm: TPoltnomForm
     Height = 17
     Caption = 'FindRoots'
     TabOrder = 16
+  end
+  object cbToNegative: TCheckBox
+    Left = 672
+    Top = 280
+    Width = 121
+    Height = 17
+    Caption = 'Using of !'
+    TabOrder = 17
+  end
+  object EditIndex: TEdit
+    Left = 672
+    Top = 56
+    Width = 121
+    Height = 32
+    TabOrder = 18
+    Visible = False
+  end
+  object cbGetIndex: TCheckBox
+    Left = 672
+    Top = 304
+    Width = 145
+    Height = 17
+    Caption = 'KonIndex'
+    TabOrder = 19
+    OnClick = cbGetIndexClick
   end
 end

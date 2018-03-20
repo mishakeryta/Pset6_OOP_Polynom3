@@ -7,7 +7,6 @@
 
 
 
-
 std::string Polynom :: NumberToStr(double val) const
 {
         std :: ostringstream stream;
@@ -22,6 +21,7 @@ std::string Polynom :: NumberToStr(double val) const
 }
  Polynom :: Polynom(double valA , double valB, double valC)
  {
+ //       ++count;
         this->valA = valA;
         this->valB = valB;
         this->valC = valC;
@@ -34,19 +34,15 @@ std::string Polynom :: NumberToStr(double val) const
  }
  Polynom :: Polynom()
  {
+ //       ++count;
         valA = valB = valC = 0;
  }
 
  Polynom :: Polynom(double val)
  {
+ //       ++count;
         valA = valB = valC = val;
  }
-
-  double Polynom :: FindValue(double valX) const
- {
-        return valX*valX*valA + valX*valB + valC;
- }
-
   double Polynom :: FindDerivativeValue(double valX) const
  {
         return valX*2*valA + valB;
@@ -66,18 +62,6 @@ std::string Polynom :: NumberToStr(double val) const
         }
         return FindPrimitiveValue(rightScope,0) - FindPrimitiveValue(leftScope,0);
  }
-
-Polynom Polynom :: MinusPolynoms(const Polynom& pol1,const Polynom& pol2)
-{
-        Polynom result(pol1.GetA() - pol2.GetA(),pol1.GetB() - pol2.GetB(),pol1.GetC() - pol2.GetC());
-        return result;
-}
-Polynom Polynom :: PlusPolynoms(const Polynom& pol1,const Polynom& pol2)
-{
-        Polynom result(pol1.GetA() + pol2.GetA(),pol1.GetB() + pol2.GetB(),pol1.GetC() + pol2.GetC());
-
-        return result;
-}
 
 int  Polynom :: FindRoots(double&root1,double &root2)  const
 {
@@ -144,6 +128,40 @@ std :: string  Polynom :: ToString() const
         }
         return result;
 }
+
+Polynom Polynom::operator !()
+{
+        return Polynom(-this->GetA(),-this->GetB(),-this->GetC());
+}
+double Polynom::operator()(double valX)
+{
+        return valX*valX*valA + valX*valB + valC;
+}
+double Polynom::operator[](int index)
+{
+        switch(index)
+        {
+                case 0:return valA;
+                case 1:return valB;
+                case 2:return valC;
+                default: throw int(0);
+        }
+}
+Polynom Polynom::operator+(const Polynom&  polynom2)
+{
+        return Polynom(valA+ polynom2.GetA(),valB + polynom2.GetB(),
+        valC + polynom2.GetC());
+}
+Polynom Polynom::operator-(const Polynom&  polynom2)
+{
+        return Polynom(valA -  polynom2.GetA(),valB - polynom2.GetB(),
+        valC - polynom2.GetC());
+}
+P
+
+
+
+
 
 
 

@@ -109,7 +109,7 @@ void __fastcall TPoltnomForm::ButtonCalculateClick(TObject *Sender)
         {
              reOutPut->Lines->Strings[indexRow] =   reOutPut->Lines->Strings[indexRow]
              + "Polylom1("+ FloatToStr(val) + ") = "
-             + FloatToStr(polynom1.FindValue(val)) + ";\n";
+             + FloatToStr(polynom1(val)) + ";\n";
              ++indexRow;
         }
         if(cbDarivativValue->Checked)
@@ -155,7 +155,29 @@ void __fastcall TPoltnomForm::ButtonCalculateClick(TObject *Sender)
                         "D < 0;\n";
                         break;
                 }
+                ++indexRow;
         }
+        if(cbToNegative->Checked)
+        {
+                reOutPut->Lines->Strings[indexRow] = reOutPut->Lines->Strings[indexRow]
+                + "!(" + ToAnsiStr(polynom1) +") = " +ToAnsiStr(!polynom1)+ ";\n";
+                ++indexRow;
+        }
+        if(cbGetIndex->Checked)
+        {
+                try
+                {
+                        int index = StrToInt(EditIndex->Text);
+                        reOutPut->Lines->Strings[indexRow] = reOutPut->Lines->Strings[indexRow]
+                        + "K of polrnom1 with Index " + index + " = " polynom1[index];
+                        ++indexRow;
+                }
+                catch (int e)
+                {
+                        ShowMessage("I dont so index\n");
+                }
+        }
+
 
 }
 AnsiString  TPoltnomForm::ToAnsiStr(Polynom polynom)
@@ -170,4 +192,11 @@ AnsiString  TPoltnomForm::ToAnsiStr(Polynom polynom)
 }
 //---------------------------------------------------------------------------
 
+
+void __fastcall TPoltnomForm::cbGetIndexClick(TObject *Sender)
+{
+        lbIndex->Visible = !lbIndex->Visible;
+        EditIndex->Visible = !EditIndex->Visible;       
+}
+//---------------------------------------------------------------------------
 

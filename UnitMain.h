@@ -37,10 +37,15 @@ __published:	// IDE-managed Components
         TCheckBox *cbIntegralValue;
         TEdit *EditScope1;
         TCheckBox *cbFindRoots;
+        TCheckBox *cbToNegative;
+        TEdit *EditIndex;
+        TLabel *lbIndex;
+        TCheckBox *cbGetIndex;
         void __fastcall cbCheckPoly2Click(TObject *Sender);
         void __fastcall cbCheckValClick(TObject *Sender);
         void __fastcall cbIntegralValueClick(TObject *Sender);
         void __fastcall ButtonCalculateClick(TObject *Sender);
+        void __fastcall cbGetIndexClick(TObject *Sender);
         
        
 private:
