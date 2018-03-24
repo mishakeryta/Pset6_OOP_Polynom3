@@ -80,8 +80,26 @@ void __fastcall TForm1::ButtonCalculateClick(TObject *Sender)
 {
         reOutPut->Lines->Clear();
         Polynom polynom1(StrToFloat(EditA->Text),StrToFloat(EditB->Text),StrToFloat(EditC->Text));
-        double val = 0;
-        Polynom polynom2(0,0,0);
+		double val = 0;
+		Polynom polynom2(0);
+		std::string strPolynom = AnsiToStr(EditTestPolynom->Text);
+		Polynom testPolynom(0);
+		try
+		{
+		testPolynom<<strPolynom;
+		}
+		catch (std::string message)
+		{
+			AnsiString ansiMes = "";
+			for(int i = 0;i<message.length();++i)
+			{
+				ansiMes += message[i];
+            }
+			ShowMessage(ansiMes);
+        }
+		reOutPut->Lines->Strings[0]  = reOutPut->Lines->Strings[0]
+		+ ToAnsiStr(testPolynom)+";\n";
+
         if(numValWatchers)
         {
                 val = StrToFloat(EditVal->Text);
@@ -90,18 +108,20 @@ void __fastcall TForm1::ButtonCalculateClick(TObject *Sender)
         {
                 polynom2.SetABC(StrToFloat(EditA2->Text),StrToFloat(EditB2->Text),StrToFloat(EditC2->Text));
         }
-        int indexRow = 0;
+		int indexRow = 1;
         if(cbAddition->Checked)
         {
-            reOutPut->Lines->Strings[indexRow] = reOutPut->Lines->Strings[indexRow] +  "(" + ToAnsiStr(polynom1)
+			reOutPut->Lines->Strings[indexRow]  = reOutPut->Lines->Strings[indexRow] +
+			 "(" + ToAnsiStr(polynom1)
             + ") + ("  + ToAnsiStr(polynom2) +  ") ="
             + ToAnsiStr(polynom1+polynom2) + ";\n";
-            ++indexRow;
+			++indexRow;
         }
         if(cbSubtraction->Checked)
-        {
-            reOutPut->Lines->Strings[indexRow]  = reOutPut->Lines->Strings[indexRow] + "(" + ToAnsiStr(polynom1 )
-            + ") - ("  + ToAnsiStr(polynom2) +  ") ="
+		{
+			reOutPut->Lines->Strings[indexRow]  = reOutPut->Lines->Strings[indexRow]+
+			"(" + ToAnsiStr(polynom1 )
+			+ ") - ("  + ToAnsiStr(polynom2) +  ") ="
             + ToAnsiStr(polynom1-polynom2) + ";\n";
             ++indexRow;
         }
@@ -210,11 +230,21 @@ AnsiString TForm1::ToAnsiStr(Polynom polynom)
         AnsiString result = "";
         std::string str = "";
         str << polynom ;
-        for(int i =0;i<str.length();++i)
-        {
-                result += str[i];
-        }
-        return result;
+		for(int i =0;i<str.length();++i)
+		{
+				result += str[i];
+		}
+		return result;
+}
+
+std::string TForm1::AnsiToStr(AnsiString ansistr)
+{
+	std::string result = "";
+    for(int i =1;i<=ansistr.Length();++i)
+	{
+		result += ansistr[i];
+	}
+	return result;
 }
 //---------------------------------------------------------------------------
 
@@ -249,6 +279,8 @@ TCheckBox* cbChecker =  (TCheckBox*)Sender;
         }
 }
 //---------------------------------------------------------------------------
+
+
 
 
 

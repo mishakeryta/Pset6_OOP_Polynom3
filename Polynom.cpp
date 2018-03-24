@@ -203,26 +203,39 @@ void operator<<(Polynom& polynom,const std::string& str)
 	std::string format = "";
 	for(int i = 0;i<str.length();++i)
 	{
-			format = !(isblank(str[i]))?str[i]:char();
-		//format = ;
+			if(str[i] != ' ')
+			{
+				format += str[i];
+            }
 	}
-    format.length();
-	std::string tmpForDigits = "";
-    std::string tmp = "";
-	int index = 0;
-	if(format[index] =='+' || format[index] == '-')
+	
+
+	for(int index = 0;index<format.length();)
 	{
-		tmpForDigits += format[index];
-        ++index;
-	}
-	ConDigits(tmpForDigits,format,index);
-	double tmpVal = StrToNumber(tmpForDigits);
-	ConNonDigits(tmp,format,index);
-	polynom.AddToK(tmp,tmpVal);
+		std::string tmpForDigits = "";
+		std::string tmp = "";
+		if(format[index] =='+' || format[index] == '-')
+		{
+			tmpForDigits += format[index];
+			++index;
+		}
+		else
+		{
+			if(index != 0)
+			{
+				throw std::string("Bad format");
+            }
+        }
+		ConDigits(tmpForDigits,format,index);
+		double tmpVal = StrToNumber(tmpForDigits);
+		ConNonDigits(tmp,format,index);
+		polynom.AddToK(tmp,tmpVal);
+    }
 }
 void ConDigits(std::string& destination,const std::string& source,int& index)
 {
 	if(source == "") return;
+    if(source[index] == '-' || source[index] == '+') throw std::string("Bad format");
 	while(index < source.length() && isdigit(source[index]))
 	{
 		destination += source[index];

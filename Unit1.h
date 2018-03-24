@@ -46,6 +46,7 @@ __published:	// IDE-managed Components
         TCheckBox *cbMutiConst;
         TCheckBox *cbCount;
 	TCheckBox *cbCompare;
+	TEdit *EditTestPolynom;
         void __fastcall cbCheckPoly2Click(TObject *Sender);
         void __fastcall cbCheckValClick(TObject *Sender);
         void __fastcall cbIntegralValueClick(TObject *Sender);
@@ -58,6 +59,8 @@ private:
 int numPolynom2Watchers;
 int numValWatchers;
 AnsiString  ToAnsiStr(Polynom polynom);
+std::string AnsiToStr(AnsiString ansstr);
+
 
 
 public:		// User declarations

@@ -2,12 +2,12 @@ object Form1: TForm1
   Left = 247
   Top = 224
   Caption = 'Polynom'
-  ClientHeight = 464
+  ClientHeight = 662
   ClientWidth = 854
   Color = clBtnFace
-  Constraints.MaxHeight = 502
+  Constraints.MaxHeight = 700
   Constraints.MaxWidth = 870
-  Constraints.MinHeight = 502
+  Constraints.MinHeight = 700
   Constraints.MinWidth = 870
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -153,7 +153,7 @@ object Form1: TForm1
     Left = 0
     Top = 176
     Width = 593
-    Height = 265
+    Height = 321
     Ctl3D = True
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
@@ -310,5 +310,12 @@ object Form1: TForm1
     Caption = 'Cmpare'
     TabOrder = 22
     OnClick = cbCheckPoly2Click
+  end
+  object EditTestPolynom: TEdit
+    Left = 8
+    Top = 608
+    Width = 601
+    Height = 33
+    TabOrder = 23
   end
 end

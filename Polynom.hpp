@@ -43,7 +43,7 @@ class Polynom
         double valC;
         static int numOfPolynom;
 		std::string NumberToStr (double val) const;
-		friend double StrToNumber(std::string str) const;
+		friend double StrToNumber(std::string str);
 		friend void ConDigits(std::string& destination,const std::string& source,int& index);
 		friend void ConNonDigits(std::string& destination,const std::string& source,int& index);
 

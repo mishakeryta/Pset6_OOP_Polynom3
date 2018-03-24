@@ -17,7 +17,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	}
 	catch (Exception &exception)
 	{
-		Application->ShowException(&exception);
+
 	}
 	catch (...)
 	{
