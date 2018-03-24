@@ -102,7 +102,7 @@ void __fastcall TPoltnomForm::ButtonCalculateClick(TObject *Sender)
         {
             reOutPut->Lines->Strings[indexRow]  = reOutPut->Lines->Strings[indexRow] + "(" + ToAnsiStr(polynom1 )
             + ") - ("  + ToAnsiStr(polynom2) +  ") ="
-            + ToAnsiStr(Polynom :: MinusPolynoms(polynom1,polynom2)) + ";\n";
+            + ToAnsiStr(polynom1-polynom2) + ";\n";
             ++indexRow;
         }
         if(cbValueInPoint->Checked)
@@ -174,16 +174,35 @@ void __fastcall TPoltnomForm::ButtonCalculateClick(TObject *Sender)
                 }
                 catch (int e)
                 {
-                        ShowMessage("I dont so index\n");
+                        ShowMessage("I  dont so index\n");
                 }
-        }
+                catch(...)
+                {
+                        throw;
+                }
 
+         }
+         if(cbMutiConst->Checked)
+         {
+                 reOutPut->Lines->Strings[indexRow] = reOutPut->Lines->Strings[indexRow]
+                 + FloatToStr(val)+"*(" + ToAnsiStr(polynom1) +") = " + ToAnsiStr(val *polynom1)
+                 + ";\n";
+                 ++indexRow;
+         }
+         if(cbCount->Checked)
+         {
+                reOutPut->Lines->Strings[indexRow] = reOutPut->Lines->Strings[indexRow]
+                + "Num of object :" + IntToStr(Polynom::GetNumOfObj()) +";\n";
+                ++indexRow;
+         }
+         
 
 }
 AnsiString  TPoltnomForm::ToAnsiStr(Polynom polynom)
 {
         AnsiString result = "";
-        std::string str = polynom.ToString();
+        std::string str = "";
+        str << polynom ;
         for(int i =0;i<str.length();++i)
         {
                 result += str[i];
@@ -197,6 +216,30 @@ void __fastcall TPoltnomForm::cbGetIndexClick(TObject *Sender)
 {
         lbIndex->Visible = !lbIndex->Visible;
         EditIndex->Visible = !EditIndex->Visible;       
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TPoltnomForm::cbMutiConstClick(TObject *Sender)
+{
+TCheckBox* cbChecker =  (TCheckBox*)Sender;
+        if(cbChecker->Checked)
+        {
+                ++numValWatchers;
+        }
+        else
+        {
+                --numValWatchers;
+        }
+        if(numValWatchers)
+        {
+                lbVal->Visible = True;
+                EditVal->Visible = True;
+        }
+        else
+        {
+                lbVal->Visible = False;
+                EditVal->Visible = False;
+        }
 }
 //---------------------------------------------------------------------------
 

@@ -41,11 +41,14 @@ __published:	// IDE-managed Components
         TEdit *EditIndex;
         TLabel *lbIndex;
         TCheckBox *cbGetIndex;
+        TCheckBox *cbMutiConst;
+        TCheckBox *cbCount;
         void __fastcall cbCheckPoly2Click(TObject *Sender);
         void __fastcall cbCheckValClick(TObject *Sender);
         void __fastcall cbIntegralValueClick(TObject *Sender);
         void __fastcall ButtonCalculateClick(TObject *Sender);
         void __fastcall cbGetIndexClick(TObject *Sender);
+        void __fastcall cbMutiConstClick(TObject *Sender);
         
        
 private:

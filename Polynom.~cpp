@@ -6,7 +6,7 @@
 
 
 
-
+int Polynom::numOfPolynom= 0;
 std::string Polynom :: NumberToStr(double val) const
 {
         std :: ostringstream stream;
@@ -20,9 +20,9 @@ std::string Polynom :: NumberToStr(double val) const
 
 }
  Polynom :: Polynom(double valA , double valB, double valC)
- {
- //       ++count;
-        this->valA = valA;
+{
+        ++numOfPolynom;
+       this->valA = valA;
         this->valB = valB;
         this->valC = valC;
  }
@@ -34,13 +34,13 @@ std::string Polynom :: NumberToStr(double val) const
  }
  Polynom :: Polynom()
  {
- //       ++count;
+        ++numOfPolynom;
         valA = valB = valC = 0;
  }
 
  Polynom :: Polynom(double val)
  {
- //       ++count;
+        ++numOfPolynom;
         valA = valB = valC = val;
  }
   double Polynom :: FindDerivativeValue(double valX) const
@@ -156,6 +156,27 @@ Polynom Polynom::operator-(const Polynom&  polynom2)
 {
         return Polynom(valA -  polynom2.GetA(),valB - polynom2.GetB(),
         valC - polynom2.GetC());
+}
+Polynom operator*(double val,const Polynom& polynom)
+{
+        return Polynom(val * polynom.GetA(),val*polynom.GetB(),val*polynom.GetC());
+}
+void operator<<(std::string& str,const Polynom& polynom);
+{
+        str = str + polynom.ToString();
+        //return str;
+}
+//void operator>>(const std::string& str,Polynom& polynom);
+//{
+//
+//}
+Polynom::~Polynom()
+{
+        numOfPolynom++;
+}
+ int Polynom::GetNumOfObj()
+{
+        return numOfPolynom;
 }
 
 

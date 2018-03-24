@@ -278,4 +278,21 @@ object PoltnomForm: TPoltnomForm
     TabOrder = 19
     OnClick = cbGetIndexClick
   end
+  object cbMutiConst: TCheckBox
+    Left = 672
+    Top = 328
+    Width = 137
+    Height = 17
+    Caption = 'MultToConst'
+    TabOrder = 20
+    OnClick = cbMutiConstClick
+  end
+  object cbCount: TCheckBox
+    Left = 672
+    Top = 352
+    Width = 97
+    Height = 17
+    Caption = 'Count'
+    TabOrder = 21
+  end
 end

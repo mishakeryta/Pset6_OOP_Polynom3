@@ -5,12 +5,11 @@
 #include <math.h>
 class Polynom
 {
-        
-       
         public:
         Polynom();
         Polynom(double val);
         Polynom(double valA ,double valB ,double valC );
+        ~Polynom();
         void SetABC(double valA,double valB,double valC);
         Polynom& SetA(double valA){this->valA = valA; return *this;}
         double GetA() const {return valA;}
@@ -26,16 +25,18 @@ class Polynom
         Polynom operator!();
         double operator()(double val);
         double operator[](int index);
-        Polynom operator+(const Polynom& polynom2);
-         Polynom operator-(const Polynom& polynom2);
-
- //       ~Polynom() { --count; }
+        Polynom operator+(const Polynom& polynom2)const;
+        Polynom operator-(const Polynom& polynom2)const;
+        friend Polynom operator*(double val,const Polynom& polynom);
+        static int GetNumOfObj();
+        friend void operator<<(std::string& str,const Polynom& polynom);
+        friend void operator>>(const Polynom& polynom,string& polynom);
         private:
         double valA;
         double valB;
         double valC;
-       // static int count;
-        std::string Polynom :: NumberToStr(double val) const;
+        static int numOfPolynom;
+        std::string NumberToStr (double val) const;
 };
 #endif
 
