@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2018.03.23 22:31:13.737,=C:\study\2\OOP\psets\Project1PCH1.h</Transaction>
+    <Transaction>2018.03.23 22:31:26.256,=C:\study\2\OOP\psets\Unit1.cpp</Transaction>
+    <Transaction>2018.03.23 22:33:09.102,C:\study\2\OOP\psets\pset6\Polynom_Port__\Unit1.cpp=C:\study\2\OOP\psets\Unit1.cpp</Transaction>
+    <Transaction>2018.03.23 22:33:09.102,C:\study\2\OOP\psets\pset6\Polynom_Port__\Unit1.h=C:\study\2\OOP\psets\Unit1.h</Transaction>
+    <Transaction>2018.03.23 22:33:09.102,C:\study\2\OOP\psets\pset6\Polynom_Port__\Unit1.dfm=C:\study\2\OOP\psets\Unit1.dfm</Transaction>
+    <Transaction>2018.03.23 22:33:17.885,C:\study\2\OOP\psets\pset6\Polynom_Port__\Project1PCH1.h=C:\study\2\OOP\psets\Project1PCH1.h</Transaction>
+    <Transaction>2018.03.23 22:33:21.266,C:\study\2\OOP\psets\pset6\Polynom_Port__\Project1.cbproj=C:\study\2\OOP\psets\Project1.cbproj</Transaction>
+    <Transaction>2018.03.23 22:34:58.349,=C:\study\2\OOP\psets\pset6\Polynom_Port__\Polynom.cpp</Transaction>
+    <Transaction>2018.03.23 22:34:58.362,=C:\study\2\OOP\psets\pset6\Polynom_Port__\Polynom.hpp</Transaction>
+  </Transactions>
+</BorlandProject>
